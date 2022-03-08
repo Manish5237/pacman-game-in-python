@@ -24,3 +24,4 @@ START_FONT = 'arial black'
 # PLAYER_START_POS = vec(2, 2)
 
 # mob settings
+

@@ -1,5 +1,7 @@
-This is the readme file created for ease of viewer.
-The contributors are as follows:
-Prathamesh Ingale
-Shivam Malpani
-Manish Salunke
+404_brain_not_found
+Members: 
+1. Shivam Malpani
+2. Prathmesh Mahadeo Ingale
+3. Manish Salunkhe
+
+Project: Pacman using Python

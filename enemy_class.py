@@ -58,11 +58,32 @@ class Enemy:
         
         
     def time_to_move(self):
-    	pass
+    	if int(self.pix_pos.x+TOP_BOTTOM_BUFFER//2) % self.app.cell_width == 0:
+            if self.direction == vec(1, 0) or self.direction == vec(-1, 0) or self.direction == vec(0, 0):
+                return True
+        if int(self.pix_pos.y+TOP_BOTTOM_BUFFER//2) % self.app.cell_height == 0:
+            if self.direction == vec(0, 1) or self.direction == vec(0, -1) or self.direction == vec(0, 0):
+                return True
+        return False
     	
     def move(self):
-        pass
+        self.direction = self.get_random_direction()
             
+    def get_random_direction(self):
+        while True:
+            number = random.randint(-2, 1)
+            if number == -2:
+                x_dir, y_dir = 1, 0
+            elif number == -1:
+                x_dir, y_dir = 0, 1
+            elif number == 0:
+                x_dir, y_dir = -1, 0
+            else:
+                x_dir, y_dir = 0, -1
+            next_pos = vec(self.grid_pos.x + x_dir, self.grid_pos.y + y_dir)
+            if next_pos not in self.app.walls:
+                break
+        return vec(x_dir, y_dir)
             
     def BFS(self, start, target):
         grid = [[0 for x in range(28)] for x in range(30)]
@@ -120,12 +141,3 @@ class Enemy:
 	    return "random"
 	else:
 	    return "scared"
-	    
-	    
-	    
-	    
-	    
-	    
-        
-        
-        
